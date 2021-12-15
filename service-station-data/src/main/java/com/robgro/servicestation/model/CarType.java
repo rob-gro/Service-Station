@@ -1,11 +1,32 @@
 package com.robgro.servicestation.model;
 
-import lombok.Data;
-
-@Data
-public class CarType {
+public class CarType extends BaseEntity{
 
     private String carType;     // Volkswagen
     private String carModel;    // Passat
     private String color;       // black
+
+    public String getCarType() {
+        return carType;
+    }
+
+    public void setCarType(String carType) {
+        this.carType = carType;
+    }
+
+    public String getCarModel() {
+        return carModel;
+    }
+
+    public void setCarModel(String carModel) {
+        this.carModel = carModel;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
 }

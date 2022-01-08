@@ -1,11 +1,13 @@
 package com.robgro.servicestation.services.map;
 
 import com.robgro.servicestation.model.Mechanic;
-import com.robgro.servicestation.services.CrudService;
+import com.robgro.servicestation.services.MechanicService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class MechanicServiceMap extends AbstractMapService<Mechanic, Long> implements CrudService<Mechanic, Long> {
+@Service
+public class MechanicServiceMap extends AbstractMapService<Mechanic, Long> implements MechanicService {
 
     @Override
     public Set<Mechanic> findAll() {

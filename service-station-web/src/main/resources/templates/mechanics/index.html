@@ -6,6 +6,29 @@
 </head>
 <body>
     <h1 th:text="'Mechanics in Service Station'">"Mechanics from real template"</h1>
-    <h2> here should be a list of mechanics</h2>
+    <h2> here is a list of our mechanics</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>Email Address</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="mechanic : ${mechanics}">
+            <td th:text="${mechanic.id}">888</td>
+            <td th:text="${mechanic.firstName}">boris</td>
+            <td th:text="${mechanic.lastName}">johnson</td>
+            <td th:text="${mechanic.phoneNumber}">999 888 777</td>
+            <td th:text="${mechanic.email}">person@email.com</td>
+        </tr>
+        </tbody>
+    </table>
+
+
 </body>
 </html>

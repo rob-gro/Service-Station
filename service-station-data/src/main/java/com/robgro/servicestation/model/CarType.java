@@ -1,6 +1,6 @@
 package com.robgro.servicestation.model;
 
-public class CarType extends BaseEntity{
+public class CarType extends BaseEntity {
 
     private String carType;     // Volkswagen
     private String carModel;    // Passat

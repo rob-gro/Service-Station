@@ -22,7 +22,6 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         Owner owner1 = new Owner();
-        owner1.setId(1L);
         owner1.setFirstName("Agnieszka");
         owner1.setLastName("Markiewicz");
         owner1.setPhoneNumber("074789654123");
@@ -31,7 +30,6 @@ public class DataLoader implements CommandLineRunner {
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
-        owner2.setId(2L);
         owner2.setFirstName("Robert");
         owner2.setLastName("Grodzki");
         owner2.setPhoneNumber("07478385228");
@@ -41,8 +39,7 @@ public class DataLoader implements CommandLineRunner {
         System.out.println("Loaded owners ...");
 
         Mechanic mechanic1 = new Mechanic();
-        mechanic1.setId(11L);
-        mechanic1.setFirstName("Arnold");
+       mechanic1.setFirstName("Arnold");
         mechanic1.setLastName("Schwarzenegger");
         mechanic1.setPhoneNumber("987456321");
         mechanic1.setEmail("a.schwarzenegger@paramount.com");
@@ -50,7 +47,6 @@ public class DataLoader implements CommandLineRunner {
         mechanicService.save(mechanic1);
 
         Mechanic mechanic2 = new Mechanic();
-        mechanic2.setId(22L);
         mechanic2.setFirstName("Robert");
         mechanic2.setLastName("Kubica");
         mechanic2.setPhoneNumber("32145698888");

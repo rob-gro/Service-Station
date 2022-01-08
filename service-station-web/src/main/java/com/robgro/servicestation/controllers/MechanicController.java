@@ -15,7 +15,7 @@ public class MechanicController {
         this.mechanicService = mechanicService;
     }
 
-    @RequestMapping({"","/","/index", "/index.html"})
+    @RequestMapping({"", "/", "/index", "/index.html"})
     public String listMechanics(Model model) {
         model.addAttribute("mechanics", mechanicService.findAll());
         return "mechanics/index";

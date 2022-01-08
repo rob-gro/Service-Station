@@ -20,7 +20,7 @@ public class CarServiceMap extends AbstractMapService<Car, Long> implements CarS
 
     @Override
     public Car save(Car object) {
-        return super.save(object.getId(), object);
+        return super.save(object);
     }
 
     @Override

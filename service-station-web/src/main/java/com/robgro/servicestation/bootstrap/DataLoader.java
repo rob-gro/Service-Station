@@ -1,45 +1,45 @@
 package com.robgro.servicestation.bootstrap;
 
+import com.robgro.servicestation.model.Client;
 import com.robgro.servicestation.model.Mechanic;
-import com.robgro.servicestation.model.Owner;
+import com.robgro.servicestation.services.ClientService;
 import com.robgro.servicestation.services.MechanicService;
-import com.robgro.servicestation.services.OwnerService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DataLoader implements CommandLineRunner {
 
-    private final OwnerService ownerService;
+    private final ClientService clientService;
     private final MechanicService mechanicService;
 
-    public DataLoader(OwnerService ownerService, MechanicService mechanicService) {
-        this.ownerService = ownerService;
+    public DataLoader(ClientService clientService, MechanicService mechanicService) {
+        this.clientService = clientService;
         this.mechanicService = mechanicService;
     }
 
     @Override
     public void run(String... args) throws Exception {
 
-        Owner owner1 = new Owner();
-        owner1.setFirstName("Agnieszka");
-        owner1.setLastName("Markiewicz");
-        owner1.setPhoneNumber("074789654123");
-        owner1.setEmail("aga.markiewicz.szkocja@gmail.com");
+        Client client1 = new Client();
+        client1.setFirstName("Agnieszka");
+        client1.setLastName("Markiewicz");
+        client1.setPhoneNumber("074789654123");
+        client1.setEmail("aga.markiewicz.szkocja@gmail.com");
 
-        ownerService.save(owner1);
+        clientService.save(client1);
 
-        Owner owner2 = new Owner();
-        owner2.setFirstName("Robert");
-        owner2.setLastName("Grodzki");
-        owner2.setPhoneNumber("07478385228");
-        owner2.setEmail("r.grodzki74@gmail.com");
+        Client client2 = new Client();
+        client2.setFirstName("Robert");
+        client2.setLastName("Grodzki");
+        client2.setPhoneNumber("07478385228");
+        client2.setEmail("r.grodzki74@gmail.com");
 
-        ownerService.save(owner2);
+        clientService.save(client2);
         System.out.println("Loaded owners ...");
 
         Mechanic mechanic1 = new Mechanic();
-       mechanic1.setFirstName("Arnold");
+        mechanic1.setFirstName("Arnold");
         mechanic1.setLastName("Schwarzenegger");
         mechanic1.setPhoneNumber("987456321");
         mechanic1.setEmail("a.schwarzenegger@paramount.com");

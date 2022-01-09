@@ -1,31 +1,31 @@
 package com.robgro.servicestation.services.map;
 
-import com.robgro.servicestation.model.Owner;
-import com.robgro.servicestation.services.OwnerService;
+import com.robgro.servicestation.model.Client;
+import com.robgro.servicestation.services.ClientService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+public class ClientServiceMap extends AbstractMapService<Client, Long> implements ClientService {
 
     @Override
-    public Set<Owner> findAll() {
+    public Set<Client> findAll() {
         return super.findAll();
     }
 
     @Override
-    public Owner findById(Long id) {
+    public Client findById(Long id) {
         return super.findById(id);
     }
 
     @Override
-    public Owner save(Owner object) {
+    public Client save(Client object) {
         return super.save(object);
     }
 
     @Override
-    public void delete(Owner object) {
+    public void delete(Client object) {
         super.delete(object);
     }
 
@@ -35,7 +35,7 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     }
 
     @Override
-    public Owner findByLastName(String lastName) {
+    public Client findByLastName(String lastName) {
         return null;
     }
 }

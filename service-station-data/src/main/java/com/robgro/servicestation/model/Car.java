@@ -2,15 +2,15 @@ package com.robgro.servicestation.model;
 
 public class Car extends BaseEntity{
 
-    private Owner owner;
+    private Client client;
     private CarType carType;
 
-    public Owner getOwner() {
-        return owner;
+    public Client getOwner() {
+        return client;
     }
 
-    public void setOwner(Owner owner) {
-        this.owner = owner;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     public CarType getCarType() {

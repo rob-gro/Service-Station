@@ -16,7 +16,7 @@ public class ClientController {
     }
 
     @RequestMapping({"", "/", "/index", "/index.html"})
-    public String listOwners(Model model) {
+    public String listClients(Model model) {
         model.addAttribute("clients", clientService.findAll());
         return "clients/index";
     }

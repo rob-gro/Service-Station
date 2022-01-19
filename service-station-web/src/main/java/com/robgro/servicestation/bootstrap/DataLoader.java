@@ -24,7 +24,7 @@ public class DataLoader implements CommandLineRunner {
         Client client1 = new Client();
         client1.setFirstName("Agnieszka");
         client1.setLastName("Markiewicz");
-        client1.setPhoneNumber("074789654123");
+        client1.setPhoneNumber("07922322002");
         client1.setEmail("aga.markiewicz.szkocja@gmail.com");
 
         clientService.save(client1);
@@ -36,7 +36,9 @@ public class DataLoader implements CommandLineRunner {
         client2.setEmail("r.grodzki74@gmail.com");
 
         clientService.save(client2);
-        System.out.println("Loaded owners ...");
+
+
+        System.out.println("Loaded clients ...");
 
         Mechanic mechanic1 = new Mechanic();
         mechanic1.setFirstName("Arnold");

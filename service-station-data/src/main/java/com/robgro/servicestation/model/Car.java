@@ -5,7 +5,7 @@ public class Car extends BaseEntity{
     private Client client;
     private CarType carType;
 
-    public Client getOwner() {
+    public Client getClient() {
         return client;
     }
 

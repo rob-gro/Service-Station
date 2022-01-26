@@ -1,10 +1,11 @@
 package com.robgro.servicestation.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
-public class Mechanic extends Person{
+public class Mechanic extends Person {
 
-    private Set<Specialization> specializations;
+    private Set<Specialization> specializations = new HashSet<>();
 
     public Set<Specialization> getSpecializations() {
         return specializations;

@@ -1,10 +1,11 @@
 package com.robgro.servicestation.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Client extends Person {
 
-    private Set<Car> cars;
+    private Set<Car> cars = new HashSet<>();
 
     @Override
     public String getFirstName() {

@@ -1,5 +1,6 @@
 package com.robgro.servicestation.bootstrap;
 
+import com.robgro.servicestation.model.Car;
 import com.robgro.servicestation.model.CarModel;
 import com.robgro.servicestation.model.Client;
 import com.robgro.servicestation.model.Mechanic;
@@ -40,6 +41,11 @@ public class DataLoader implements CommandLineRunner {
         client1.setPhoneNumber("07922322002");
         client1.setEmail("aga.markiewicz.szkocja@gmail.com");
 
+        Car agasCar = new Car();
+        agasCar.setCarModel(savedVolModel);
+        agasCar.setClient(client1);
+        client1.getCars().add(agasCar);
+
         clientService.save(client1);
 
         Client client2 = new Client();
@@ -47,6 +53,11 @@ public class DataLoader implements CommandLineRunner {
         client2.setLastName("Grodzki");
         client2.setPhoneNumber("07478385228");
         client2.setEmail("r.grodzki74@gmail.com");
+
+        Car robCar = new Car();
+        robCar.setCarModel(saveVauModel);
+        robCar.setClient(client2);
+        client2.getCars().add(robCar);
 
         clientService.save(client2);
 

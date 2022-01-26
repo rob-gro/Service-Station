@@ -1,6 +1,9 @@
 package com.robgro.servicestation.services.map;
 
+import com.robgro.servicestation.model.Car;
 import com.robgro.servicestation.model.Client;
+import com.robgro.servicestation.services.CarModelService;
+import com.robgro.servicestation.services.CarService;
 import com.robgro.servicestation.services.ClientService;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +11,14 @@ import java.util.Set;
 
 @Service
 public class ClientMapService extends AbstractMapService<Client, Long> implements ClientService {
+
+    private final CarModelService carModelService;
+    private final CarService carService;
+
+    public ClientMapService(CarModelService carModelService, CarService carService) {
+        this.carModelService = carModelService;
+        this.carService = carService;
+    }
 
     @Override
     public Set<Client> findAll() {
@@ -21,7 +32,26 @@ public class ClientMapService extends AbstractMapService<Client, Long> implement
 
     @Override
     public Client save(Client object) {
-        return super.save(object);
+        if (object != null) {
+            if (object.getCars() != null) {
+                object.getCars().forEach(car -> {
+                    if (car.getCarModel() != null) {
+                        if (car.getCarModel().getId() == null) {
+                            car.setCarModel(carModelService.save(car.getCarModel()));
+                        }
+                    } else {
+                        throw new RuntimeException("Car Model is required");
+                    }
+                    if (car.getId() == null) {
+                        Car savedCar = carService.save(car);
+                        car.setId(savedCar.getId());
+                    }
+                });
+            }
+            return super.save(object);
+        } else {
+            return null;
+        }
     }
 
     @Override

@@ -3,7 +3,7 @@ package com.robgro.servicestation.model;
 public class Car extends BaseEntity{
 
     private Client client;
-    private CarType carType;
+    private CarModel carPlate;
 
     public Client getClient() {
         return client;
@@ -13,11 +13,11 @@ public class Car extends BaseEntity{
         this.client = client;
     }
 
-    public CarType getCarType() {
-        return carType;
+    public CarModel getCarPlate() {
+        return carPlate;
     }
 
-    public void setCarType(CarType carType) {
-        this.carType = carType;
+    public void setCarPlate(CarModel carPlate) {
+        this.carPlate = carPlate;
     }
 }

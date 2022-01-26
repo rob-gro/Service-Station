@@ -1,9 +1,9 @@
 package com.robgro.servicestation.model;
 
-public class CarType extends BaseEntity {
+public class CarModel extends BaseEntity {
 
-    private String carType;     // Volkswagen
     private String carModel;    // Passat
+    private String carType;     // Station Wagon, Sedan, Hatchback, Coupe, Convertible, Sport, SUV, MiniVan, Pickup
     private String color;       // black
     private String carPlate;    // GH19GGE
 

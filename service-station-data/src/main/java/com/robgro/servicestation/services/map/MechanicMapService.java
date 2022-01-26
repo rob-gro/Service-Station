@@ -1,30 +1,31 @@
 package com.robgro.servicestation.services.map;
 
-import com.robgro.servicestation.model.Car;
-import com.robgro.servicestation.services.CarService;
+import com.robgro.servicestation.model.Mechanic;
+import com.robgro.servicestation.services.MechanicService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
-public class CarServiceMap extends AbstractMapService<Car, Long> implements CarService {
+public class MechanicMapService extends AbstractMapService<Mechanic, Long> implements MechanicService {
+
     @Override
-    public Set<Car> findAll() {
+    public Set<Mechanic> findAll() {
         return super.findAll();
     }
 
     @Override
-    public Car findById(Long id) {
+    public Mechanic findById(Long id) {
         return super.findById(id);
     }
 
     @Override
-    public Car save(Car object) {
+    public Mechanic save(Mechanic object) {
         return super.save(object);
     }
 
     @Override
-    public void delete(Car object) {
+    public void delete(Mechanic object) {
         super.delete(object);
     }
 

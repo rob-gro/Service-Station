@@ -1,7 +1,9 @@
 package com.robgro.servicestation.bootstrap;
 
+import com.robgro.servicestation.model.CarModel;
 import com.robgro.servicestation.model.Client;
 import com.robgro.servicestation.model.Mechanic;
+import com.robgro.servicestation.services.CarModelService;
 import com.robgro.servicestation.services.ClientService;
 import com.robgro.servicestation.services.MechanicService;
 import org.springframework.boot.CommandLineRunner;
@@ -12,14 +14,25 @@ public class DataLoader implements CommandLineRunner {
 
     private final ClientService clientService;
     private final MechanicService mechanicService;
+    private final CarModelService carModelService;
 
-    public DataLoader(ClientService clientService, MechanicService mechanicService) {
+    public DataLoader(ClientService clientService, MechanicService mechanicService, CarModelService carModelService) {
         this.clientService = clientService;
         this.mechanicService = mechanicService;
+        this.carModelService = carModelService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+
+        CarModel volkswagen = new CarModel();
+        volkswagen.setCarModel("Volkswagen");
+        CarModel savedVolModel = carModelService.save(volkswagen);
+
+        CarModel vauxhall = new CarModel();
+        vauxhall.setCarModel("Vauxhall");
+        CarModel saveVauModel = carModelService.save(vauxhall);
+
 
         Client client1 = new Client();
         client1.setFirstName("Agnieszka");

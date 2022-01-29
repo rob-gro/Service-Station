@@ -2,9 +2,11 @@ package com.robgro.servicestation.services.map;
 
 import com.robgro.servicestation.model.Specialization;
 import com.robgro.servicestation.services.SpecializationService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class SpecializationMapService extends AbstractMapService<Specialization, Long> implements SpecializationService {
     @Override
     public Set<Specialization> findAll() {

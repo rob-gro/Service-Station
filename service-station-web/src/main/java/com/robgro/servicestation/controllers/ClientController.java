@@ -20,4 +20,9 @@ public class ClientController {
         model.addAttribute("clients", clientService.findAll());
         return "clients/index";
     }
+
+    @RequestMapping("/find")
+    public String findClients() {
+        return "clients/notimplementedyet";
+    }
 }

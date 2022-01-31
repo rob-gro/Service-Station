@@ -1,11 +1,18 @@
 package com.robgro.servicestation.model;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
+@Table(name = "clients") 
 public class Client extends Person {
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
     private Set<Car> cars = new HashSet<>();
+
+    @Column(name = "car_plate")
+    private String carPlate;    // GH19GGE
 
     @Override
     public String getFirstName() {
@@ -53,5 +60,13 @@ public class Client extends Person {
 
     public void setCars(Set<Car> cars) {
         this.cars = cars;
+    }
+
+    public String getCarPlate() {
+        return carPlate;
+    }
+
+    public void setCarPlate(String carPlate) {
+        this.carPlate = carPlate;
     }
 }

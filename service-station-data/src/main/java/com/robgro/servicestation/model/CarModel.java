@@ -1,19 +1,18 @@
 package com.robgro.servicestation.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "car_models")
 public class CarModel extends BaseEntity {
 
-    private String carModel;    // Volkswagen
-    private String carType;     // Passat --> I think it's a wrong idea --> Station Wagon, Sedan, Hatchback, Coupe, Convertible, Sport, SUV, MiniVan, Pickup
+    @Column(name = "car_model")
+    private String carModel;    // Volkswagen Passat
+
+    @Column(name = "color")
     private String color;       // black
-    private String carPlate;    // GH19GGE
-
-    public String getCarType() {
-        return carType;
-    }
-
-    public void setCarType(String carType) {
-        this.carType = carType;
-    }
 
     public String getCarModel() {
         return carModel;
@@ -29,13 +28,5 @@ public class CarModel extends BaseEntity {
 
     public void setColor(String color) {
         this.color = color;
-    }
-
-    public String getCarPlate() {
-        return carPlate;
-    }
-
-    public void setCarPlate(String carPlate) {
-        this.carPlate = carPlate;
     }
 }

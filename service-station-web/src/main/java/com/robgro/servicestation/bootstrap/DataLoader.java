@@ -47,7 +47,7 @@ public class DataLoader implements CommandLineRunner {
         client1.setEmail("aga.markiewicz.szkocja@gmail.com");
 
         Car agasCar = new Car();
-        agasCar.setCarModel(savedVolModel);
+        agasCar.setModel(savedVolModel);
         agasCar.setClient(client1);
         client1.getCars().add(agasCar);
 
@@ -60,7 +60,7 @@ public class DataLoader implements CommandLineRunner {
         client2.setEmail("r.grodzki74@gmail.com");
 
         Car robCar = new Car();
-        robCar.setCarModel(saveVauModel);
+        robCar.setModel(saveVauModel);
         robCar.setClient(client2);
         client2.getCars().add(robCar);
 

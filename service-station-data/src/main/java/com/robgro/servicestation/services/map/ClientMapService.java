@@ -35,9 +35,9 @@ public class ClientMapService extends AbstractMapService<Client, Long> implement
         if (object != null) {
             if (object.getCars() != null) {
                 object.getCars().forEach(car -> {
-                    if (car.getCarModel() != null) {
-                        if (car.getCarModel().getId() == null) {
-                            car.setCarModel(carModelService.save(car.getCarModel()));
+                    if (car.getModel() != null) {
+                        if (car.getModel().getId() == null) {
+                            car.setModel(carModelService.save(car.getModel()));
                         }
                     } else {
                         throw new RuntimeException("Car Model is required");

@@ -1,11 +1,20 @@
 package com.robgro.servicestation.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "appointments")
 public class Appointment extends BaseEntity{
 
+    @Column(name = "date")
     private LocalDate date;
+
+    @Column(name = "description")
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "car_id")
     private Car car;
 
     public LocalDate getDate() {

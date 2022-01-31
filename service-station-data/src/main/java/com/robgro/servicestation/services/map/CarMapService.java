@@ -8,6 +8,7 @@ import java.util.Set;
 
 @Service
 public class CarMapService extends AbstractMapService<Car, Long> implements CarService {
+
     @Override
     public Set<Car> findAll() {
         return super.findAll();

@@ -1,12 +1,11 @@
 package com.robgro.servicestation.bootstrap;
 
 import com.robgro.servicestation.model.*;
-import com.robgro.servicestation.services.CarModelService;
-import com.robgro.servicestation.services.ClientService;
-import com.robgro.servicestation.services.MechanicService;
-import com.robgro.servicestation.services.SpecializationService;
+import com.robgro.servicestation.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -15,12 +14,15 @@ public class DataLoader implements CommandLineRunner {
     private final MechanicService mechanicService;
     private final CarModelService carModelService;
     private final SpecializationService specializationService;
+    private final AppointmentService appointmentService;
 
-    public DataLoader(ClientService clientService, MechanicService mechanicService, CarModelService carModelService, SpecializationService specializationService) {
+    public DataLoader(ClientService clientService, MechanicService mechanicService, CarModelService carModelService,
+                      SpecializationService specializationService, AppointmentService appointmentService) {
         this.clientService = clientService;
         this.mechanicService = mechanicService;
         this.carModelService = carModelService;
         this.specializationService = specializationService;
+        this.appointmentService = appointmentService;
     }
 
     @Override
@@ -39,6 +41,18 @@ public class DataLoader implements CommandLineRunner {
         CarModel vauxhall = new CarModel();
         vauxhall.setCarModel("Vauxhall");
         CarModel saveVauModel = carModelService.save(vauxhall);
+
+        Appointment vauAppointment = new Appointment();
+        vauAppointment.setCar(vauxhall);
+        vauAppointment.setDate(LocalDate.now());
+        vauAppointment.setDescription("Check engine issue");
+        appointmentService.save(vauAppointment);
+
+        Appointment volAppointment = new Appointment();
+        volAppointment.setCar(volkswagen);
+        volAppointment.setDate(LocalDate.now());
+        volAppointment.setDescription("Change winter tyres");
+        appointmentService.save(volAppointment);
 
         Client client1 = new Client();
         client1.setFirstName("Agnieszka");

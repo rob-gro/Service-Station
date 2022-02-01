@@ -15,7 +15,7 @@ public class Appointment extends BaseEntity{
 
     @ManyToOne
     @JoinColumn(name = "car_id")
-    private Car car;
+    private CarModel car;
 
     public LocalDate getDate() {
         return date;
@@ -33,11 +33,11 @@ public class Appointment extends BaseEntity{
         this.description = description;
     }
 
-    public Car getCar() {
+    public CarModel getCar() {
         return car;
     }
 
-    public void setCar(Car car) {
+    public void setCar(CarModel car) {
         this.car = car;
     }
 }

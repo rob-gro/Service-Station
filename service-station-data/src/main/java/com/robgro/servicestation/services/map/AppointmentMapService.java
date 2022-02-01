@@ -8,6 +8,7 @@ import java.util.Set;
 
 @Service
 public class AppointmentMapService extends AbstractMapService<Appointment, Long> implements AppointmentService {
+
     @Override
     public Set<Appointment> findAll() {
         return super.findAll();
@@ -19,17 +20,21 @@ public class AppointmentMapService extends AbstractMapService<Appointment, Long>
     }
 
     @Override
-    public Appointment save(Appointment object) {
-        return super.save(object);
+    public Appointment save(Appointment appointment) {
+        if (appointment.getCar() == null || appointment.getCar().getClient() == null || appointment.getCar().getId() == null
+            || appointment.getCar().getClient().getId() == null) {
+            throw new RuntimeException("Invalid appointment");
+        }
+        return super.save(appointment);
     }
 
     @Override
     public void delete(Appointment object) {
-        delete(object);
+        super.delete(object);
     }
 
     @Override
     public void deleteById(Long id) {
-        deleteById(id);
+        super.deleteById(id);
     }
 }

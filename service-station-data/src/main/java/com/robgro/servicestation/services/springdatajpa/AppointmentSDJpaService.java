@@ -34,8 +34,12 @@ public class AppointmentSDJpaService implements AppointmentService {
     }
 
     @Override
-    public Appointment save(Appointment object) {
-        return appointmentRepository.save(object);
+    public Appointment save(Appointment appointment) {
+        if (appointment.getCar() == null || appointment.getCar().getClient() == null || appointment.getCar().getId() == null
+                || appointment.getCar().getClient().getId() == null) {
+            throw new RuntimeException("Invalid appointment");
+        }
+        return appointmentRepository.save(appointment);
     }
 
     @Override

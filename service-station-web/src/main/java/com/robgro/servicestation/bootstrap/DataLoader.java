@@ -42,18 +42,6 @@ public class DataLoader implements CommandLineRunner {
         vauxhall.setCarModel("Vauxhall");
         CarModel saveVauModel = carModelService.save(vauxhall);
 
-        Appointment vauAppointment = new Appointment();
-        vauAppointment.setCar(vauxhall);
-        vauAppointment.setDate(LocalDate.now());
-        vauAppointment.setDescription("Check engine issue");
-        appointmentService.save(vauAppointment);
-
-        Appointment volAppointment = new Appointment();
-        volAppointment.setCar(volkswagen);
-        volAppointment.setDate(LocalDate.now());
-        volAppointment.setDescription("Change winter tyres");
-        appointmentService.save(volAppointment);
-
         Client client1 = new Client();
         client1.setFirstName("Agnieszka");
         client1.setLastName("Markiewicz");
@@ -80,7 +68,19 @@ public class DataLoader implements CommandLineRunner {
 
         clientService.save(client2);
 
-        System.out.println("Loaded clients ...");
+        Appointment vauAppointment = new Appointment();
+        vauAppointment.setCar(robCar);
+        vauAppointment.setDate(LocalDate.now());
+        vauAppointment.setDescription("Check engine issue");
+        appointmentService.save(vauAppointment);
+
+        Appointment volAppointment = new Appointment();
+        volAppointment.setCar(agasCar);
+        volAppointment.setDate(LocalDate.now());
+        volAppointment.setDescription("Change winter tyres");
+        appointmentService.save(volAppointment);
+
+                System.out.println("Loaded clients ...");
 
         // add mechanical's specialization
         Specialization mechanic = new Specialization();

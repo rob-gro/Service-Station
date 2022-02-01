@@ -2,11 +2,13 @@ package com.robgro.servicestation.bootstrap;
 
 import com.robgro.servicestation.model.*;
 import com.robgro.servicestation.services.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
+@Slf4j
 @Component
 public class DataLoader implements CommandLineRunner {
 
@@ -34,6 +36,8 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void loadData() {
+
+        // add cars and models
         CarModel volkswagen = new CarModel();
         volkswagen.setCarModel("Volkswagen");
         CarModel savedVolModel = carModelService.save(volkswagen);
@@ -42,12 +46,14 @@ public class DataLoader implements CommandLineRunner {
         vauxhall.setCarModel("Vauxhall");
         CarModel saveVauModel = carModelService.save(vauxhall);
 
+        // make client 1
         Client client1 = new Client();
         client1.setFirstName("Agnieszka");
         client1.setLastName("Markiewicz");
         client1.setPhoneNumber("07922322002");
         client1.setEmail("aga.markiewicz.szkocja@gmail.com");
 
+        // add client 1 car
         Car agasCar = new Car();
         agasCar.setModel(savedVolModel);
         agasCar.setClient(client1);
@@ -55,12 +61,14 @@ public class DataLoader implements CommandLineRunner {
 
         clientService.save(client1);
 
+        // make client 2
         Client client2 = new Client();
         client2.setFirstName("Robert");
         client2.setLastName("Grodzki");
         client2.setPhoneNumber("07478385228");
         client2.setEmail("r.grodzki74@gmail.com");
 
+        // add 2nd car
         Car robCar = new Car();
         robCar.setModel(saveVauModel);
         robCar.setClient(client2);
@@ -68,6 +76,7 @@ public class DataLoader implements CommandLineRunner {
 
         clientService.save(client2);
 
+        // add appointments for cars objects
         Appointment vauAppointment = new Appointment();
         vauAppointment.setCar(robCar);
         vauAppointment.setDate(LocalDate.now());
@@ -80,7 +89,8 @@ public class DataLoader implements CommandLineRunner {
         volAppointment.setDescription("Change winter tyres");
         appointmentService.save(volAppointment);
 
-                System.out.println("Loaded clients ...");
+        // confirmation
+        System.out.println("Loaded clients ...");
 
         // add mechanical's specialization
         Specialization mechanic = new Specialization();
@@ -99,6 +109,7 @@ public class DataLoader implements CommandLineRunner {
         tinsmith.setDescription("Tinsmith");
         Specialization savedTinsmith = specializationService.save(tinsmith);
 
+        // add mechanic 1
         Mechanic mechanic1 = new Mechanic();
         mechanic1.setFirstName("Arnold");
         mechanic1.setLastName("Schwarzenegger");
@@ -108,6 +119,7 @@ public class DataLoader implements CommandLineRunner {
 
         mechanicService.save(mechanic1);
 
+        // add mechanic 2
         Mechanic mechanic2 = new Mechanic();
         mechanic2.setFirstName("Robert");
         mechanic2.setLastName("Kubica");
@@ -116,6 +128,8 @@ public class DataLoader implements CommandLineRunner {
         mechanic2.setEmail("kubica@F1.com");
 
         mechanicService.save(mechanic2);
+
+        // confirmation
         System.out.println("Loaded mechanics .....");
     }
 }

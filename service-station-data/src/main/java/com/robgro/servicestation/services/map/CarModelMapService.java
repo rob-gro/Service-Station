@@ -2,11 +2,13 @@ package com.robgro.servicestation.services.map;
 
 import com.robgro.servicestation.model.CarModel;
 import com.robgro.servicestation.services.CarModelService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class CarModelMapService extends AbstractMapService<CarModel, Long> implements CarModelService {
     @Override
     public Set<CarModel> findAll() {

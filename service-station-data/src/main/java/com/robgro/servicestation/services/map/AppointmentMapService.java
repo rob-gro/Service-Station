@@ -2,11 +2,13 @@ package com.robgro.servicestation.services.map;
 
 import com.robgro.servicestation.model.Appointment;
 import com.robgro.servicestation.services.AppointmentService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class AppointmentMapService extends AbstractMapService<Appointment, Long> implements AppointmentService {
 
     @Override

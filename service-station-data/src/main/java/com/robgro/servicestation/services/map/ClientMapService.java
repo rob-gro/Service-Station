@@ -6,11 +6,13 @@ import com.robgro.servicestation.repositories.ClientRepository;
 import com.robgro.servicestation.services.CarModelService;
 import com.robgro.servicestation.services.CarService;
 import com.robgro.servicestation.services.ClientService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class ClientMapService extends AbstractMapService<Client, Long> implements ClientService {
 
     private final CarModelService carModelService;

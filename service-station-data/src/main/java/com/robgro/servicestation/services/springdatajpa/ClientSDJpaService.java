@@ -5,6 +5,7 @@ import com.robgro.servicestation.repositories.CarModelRepository;
 import com.robgro.servicestation.repositories.CarRepository;
 import com.robgro.servicestation.repositories.ClientRepository;
 import com.robgro.servicestation.services.ClientService;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
+@Primary
 @Profile("springdatajpa")
 public class ClientSDJpaService implements ClientService {
 
@@ -27,8 +29,8 @@ public class ClientSDJpaService implements ClientService {
     }
 
     @Override
-    public Client findByLastName(String lastName) {
-        return clientRepository.findByLastName(lastName);
+    public ClientRepository findByLastName(String lastName) {
+        return (ClientRepository) clientRepository.findByLastName(lastName);
     }
 
     @Override

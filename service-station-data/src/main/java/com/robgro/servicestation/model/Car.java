@@ -13,8 +13,8 @@ public class Car extends BaseEntity {
     private Client client;
 
     @ManyToOne
-    @JoinColumn(name = "car_model_id")
-    private CarModel carModel;
+    @JoinColumn(name = "model_id")
+    private CarModel model;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "car")
     private Set<Appointment> appointments = new HashSet<>();
@@ -27,12 +27,12 @@ public class Car extends BaseEntity {
         this.client = client;
     }
 
-    public CarModel getCarModel() {
-        return carModel;
+    public CarModel getModel() {
+        return model;
     }
 
-    public void setCarModel(CarModel carModel) {
-        this.carModel = carModel;
+    public void setModel(CarModel model) {
+        this.model = model;
     }
 
     public Set<Appointment> getAppointments() {

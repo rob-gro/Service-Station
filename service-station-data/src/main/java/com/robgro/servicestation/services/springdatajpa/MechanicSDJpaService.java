@@ -3,6 +3,7 @@ package com.robgro.servicestation.services.springdatajpa;
 import com.robgro.servicestation.model.Mechanic;
 import com.robgro.servicestation.repositories.MechanicRepository;
 import com.robgro.servicestation.services.MechanicService;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
+@Primary
 @Profile("springdatajpa")
 public class MechanicSDJpaService implements MechanicService {
 

@@ -2,6 +2,7 @@ package com.robgro.servicestation.services.map;
 
 import com.robgro.servicestation.model.Car;
 import com.robgro.servicestation.model.Client;
+import com.robgro.servicestation.repositories.ClientRepository;
 import com.robgro.servicestation.services.CarModelService;
 import com.robgro.servicestation.services.CarService;
 import com.robgro.servicestation.services.ClientService;
@@ -14,10 +15,12 @@ public class ClientMapService extends AbstractMapService<Client, Long> implement
 
     private final CarModelService carModelService;
     private final CarService carService;
+    private final ClientRepository clientRepository;
 
-    public ClientMapService(CarModelService carModelService, CarService carService) {
+    public ClientMapService(CarModelService carModelService, CarService carService, ClientRepository clientRepository) {
         this.carModelService = carModelService;
         this.carService = carService;
+        this.clientRepository = clientRepository;
     }
 
     @Override
@@ -65,7 +68,7 @@ public class ClientMapService extends AbstractMapService<Client, Long> implement
     }
 
     @Override
-    public Client findByLastName(String lastName) {
-        return null;
+    public ClientRepository findByLastName(String lastName) {
+        return (ClientRepository) clientRepository.findByLastName(lastName);
     }
 }

@@ -1,8 +1,15 @@
 package com.robgro.servicestation.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "appointments")
 public class Appointment extends BaseEntity{

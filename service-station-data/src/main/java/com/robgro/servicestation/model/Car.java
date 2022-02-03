@@ -1,9 +1,16 @@
 package com.robgro.servicestation.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "cars")
 public class Car extends BaseEntity {
@@ -18,28 +25,4 @@ public class Car extends BaseEntity {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "car")
     private Set<Appointment> appointments = new HashSet<>();
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
-    public CarModel getModel() {
-        return model;
-    }
-
-    public void setModel(CarModel model) {
-        this.model = model;
-    }
-
-    public Set<Appointment> getAppointments() {
-        return appointments;
-    }
-
-    public void setAppointments(Set<Appointment> appointments) {
-        this.appointments = appointments;
-    }
 }
